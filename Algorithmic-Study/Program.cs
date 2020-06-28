@@ -1,4 +1,6 @@
-﻿using algorithmStudy.Services.Graph;
+﻿using algorithmStudy.Models.LinkedList;
+using algorithmStudy.Services.Graph;
+using algorithmStudy.Services.LinkedList;
 using System;
 using System.Collections.Generic;
 
@@ -8,23 +10,6 @@ namespace algorithmStudy
     {
         static void Main(string[] args)
         {
-            #region SinglyLink Test
-            //Console.WriteLine("--SinglyLink Start---------------------");
-            //SinglyLink<string> singly = new SinglyLink<string>();
-            //singly.Head = new Node<string>("B");
-            //singly.append("D");
-            //singly.prepend("A");
-            //singly.insert(2, "C");
-            //singly.insert(4, "E");
-            //singly.display();
-            //Console.WriteLine("长度：" + singly.length);
-            //Console.WriteLine("索引为3的是：" + singly.get(3));
-            //Console.WriteLine("E的索引是：" + singly.indexOf("E"));
-            //singly.remove(0);
-            //Console.WriteLine("移除索引0后：");
-            //singly.display();
-            //Console.WriteLine("--SinglyLink End---------------------");
-            #endregion
 
             #region LoopLink Test
             //Console.WriteLine("--LoopLink Start---------------------");
@@ -216,26 +201,6 @@ namespace algorithmStudy
             //Console.WriteLine("--BinaryTree Start---------------------");
             #endregion
 
-            #region GraphSearchs Test
-            Console.WriteLine("--GraphSearchs Start---------------------");
-            GraphSearchs<string> graphSearchs = new GraphSearchs<string>();
-            //graphSearchs.NodeList = graphSearchs.InitSeed();
-            //graphSearchs.BFS("Alice");
-            List<GraphNode<string>> seed = new List<GraphNode<string>>
-            {
-                new GraphNode<string>() { Data = "A", Children = new[] { "B", "C", "D" } },
-                new GraphNode<string>() { Data = "B", Children = new[] { "E", "F" } },
-                new GraphNode<string>() { Data = "C", Children = new[] { "H" } },
-                new GraphNode<string>() { Data = "D", Children = new[] { "I", "J" } },
-                new GraphNode<string>() { Data = "E", Children = new[] { "K" } },
-                new GraphNode<string>() { Data = "H", Children = new[] { "G" } },
-                new GraphNode<string>() { Data = "J", Children = new[] { "L" } }
-            };
-            graphSearchs.NodeList = seed;
-       
-            graphSearchs.BFS("A", "G");
-            Console.WriteLine("--GraphSearchs Start---------------------");
-            #endregion
         }
 
 

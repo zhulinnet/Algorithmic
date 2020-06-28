@@ -11,18 +11,22 @@ namespace algorithmStudy.Services.Graph
         public bool Visited { get; set; } = false;
         public T[] Children { get; set; }
     }
-    class GraphSearchs<T> where T : IComparable
+    public class GraphSearchs<T> where T : IComparable
     {
         public List<GraphNode<T>> NodeList { get; set; }
         private Queue<T> BackupQueue { get; set; }
+        private Stack<T> BackupStack { get; set; }
+        private List<T> Path { get; set; } = new List<T>();
         public GraphSearchs()
         {
             this.BackupQueue = new Queue<T>();
+            this.BackupStack = new Stack<T>();
             this.NodeList = null;
         }
         public GraphSearchs(List<GraphNode<T>> graphList)
         {
             this.BackupQueue = new Queue<T>();
+            this.BackupStack = new Stack<T>();
             this.NodeList = graphList;
         }
         public List<GraphNode<string>> InitSeed()
@@ -39,18 +43,20 @@ namespace algorithmStudy.Services.Graph
         /// <summary>
         /// 广度优先算法
         /// </summary>
-        /// <param name="start"></param>
-        public void BFS(T start, T end = default(T))
+        /// <param name="start">开始的节点</param>
+        /// <param name="end">结束的节点</param>
+        /// <returns>路径</returns>
+        public List<T> BFS(T start, T end = default(T))
         {
             if (NodeList == null)
             {
                 //图为空
-                return;
+                return Path;
             }
             if (start.CompareTo(end) == 0)
             {
                 //已查询到目标节点
-                return;
+                return Path;
             }
             GraphNode<T> node = NodeList.FirstOrDefault(s => s.Data.CompareTo(start) == 0);
             if (node != null&&!node.Visited)
@@ -64,14 +70,57 @@ namespace algorithmStudy.Services.Graph
                         BackupQueue.Enqueue(item);
                     }
                 }
+                Path.Add(start);
                 Console.WriteLine(start);
                 node.Visited = true;
             }
             if (BackupQueue.Count == 0)
             {
-                return;
+                return Path;
             }
-            BFS(BackupQueue.Dequeue(), end);
+          
+            return BFS(BackupQueue.Dequeue(), end);
         }
+        /// <summary>
+        /// 深度优先算法
+        /// </summary>
+        /// <param name="start">开始的节点</param>
+        /// <param name="end">结束的节点</param>
+        /// <returns>路径</returns>
+        public List<T> DFS(T start, T end = default(T))
+        {
+            if (NodeList == null)
+            {
+                //图为空
+                return Path;
+            }
+            if (start.CompareTo(end) == 0)
+            {
+                //已查询到目标节点
+                return Path;
+            }
+            GraphNode<T> node = NodeList.FirstOrDefault(s => s.Data.CompareTo(start) == 0);
+            if (node != null && !node.Visited)
+            {
+                T[] children = node.Children;
+                if (children != null)
+                {
+                    //将候补节点入栈
+                    foreach (T item in children)
+                    {
+                        BackupStack.Push(item);
+                    }
+                }
+                Path.Add(start);
+                Console.WriteLine(start);
+                node.Visited = true;
+            }
+            if (BackupStack.Count == 0)
+            {
+                return Path;
+            }
+            return DFS(BackupStack.Pop(), end);
+        }
+
     }
 }

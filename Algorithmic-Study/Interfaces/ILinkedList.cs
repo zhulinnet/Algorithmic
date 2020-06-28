@@ -16,6 +16,5 @@ namespace algorithmStudy.Interfaces
         public void prepend(T item);
         public void remove(int index);
         public int indexOf(T item);
-        public void display();
     }
 }
