@@ -11,15 +11,28 @@ namespace algorithmStudy.Services.Graph
         public T Data { get; set; }
         //初始权重：起点为0，其他顶点为无穷大（∞）
         public double Weight { get; set; } = double.MaxValue;
+        /// <summary>
+        /// 节点是否已访问（狄克斯特拉算法）
+        /// </summary>
         public bool Visited { get; set; } = false;
         public Dictionary<T, double> Children { get; set; }
     }
     public class WeightedGraph<T> where T : IComparable
     {
         public List<WeightedGraphNode<T>> NodeList { get; set; }
+        /// <summary>
+        /// 权重是否仍然改变（贝尔曼-福特算法）
+        /// </summary>
         private bool IsWeightChange { get; set; } = true;
-        private List<WeightedGraphNode<T>> BackupList { get; set; } 
+        /// <summary>
+        /// 已经更新权重的轮数（贝尔曼-福特算法）
+        /// </summary>
         private int updateNum { get; set; } = 0;
+        /// <summary>
+        /// 备选节点（狄克斯特拉算法）
+        /// </summary>
+        private List<WeightedGraphNode<T>> BackupList { get; set; }
+
         public WeightedGraph()
         {
             this.NodeList = null;
@@ -77,14 +90,14 @@ namespace algorithmStudy.Services.Graph
         /// 狄克斯特拉算法
         /// 如果图中含有负数权重，狄克斯特拉算法可能会无法得出正确答案
         /// </summary>
-        public void Dijkstra(T current,T end)
+        public void Dijkstra(T current, T end)
         {
             if (NodeList == null)
             {
                 //图为空
                 return;
             }
-            if (current.CompareTo(end)==0)
+            if (current.CompareTo(end) == 0)
             {
                 return;
             }
@@ -127,9 +140,15 @@ namespace algorithmStudy.Services.Graph
             }
             WeightedGraphNode<T> nodeMin = NodeList.FirstOrDefault(s => s.Data.CompareTo(minData) == 0);
             BackupList.Remove(nodeMin);
-            Dijkstra(minData,end);
+            Dijkstra(minData, end);
         }
-        public void GetShortest(ref List<T> path,T start, T end)
+        /// <summary>
+        /// 读取最短路径
+        /// </summary>
+        /// <param name="path">路径</param>
+        /// <param name="start">开始</param>
+        /// <param name="end">结束</param>
+        public void GetShortest(ref List<T> path, T start, T end)
         {
             if (end == null)
             {
@@ -151,7 +170,7 @@ namespace algorithmStudy.Services.Graph
                         break;
                     }
                 }
-                GetShortest(ref path,start, minData);
+                GetShortest(ref path, start, minData);
             }
         }
     }
