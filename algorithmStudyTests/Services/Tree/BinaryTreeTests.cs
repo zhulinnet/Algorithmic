@@ -48,7 +48,9 @@ namespace algorithmStudy.Services.Tree.Tests
             List<int> result = new List<int>() {
                 15,12,3,1,4,23,17
             };
-            CollectionAssert.AreEqual(binaryTree.PreorderTraversal(binaryTree.Head), result);
+            List<int> reality = new List<int>();
+            binaryTree.PreorderTraversal(ref reality, binaryTree.Head);
+            CollectionAssert.AreEqual(reality, result);
         }
 
         [TestMethod()]
@@ -66,7 +68,9 @@ namespace algorithmStudy.Services.Tree.Tests
             List<int> result = new List<int>() {
                15,9,3,8,12,23,17,28
             };
-            CollectionAssert.AreEqual(binaryTree.PreorderTraversal(binaryTree.Head), result);
+            List<int> reality = new List<int>();
+            binaryTree.PreorderTraversal(ref reality, binaryTree.Head);
+            CollectionAssert.AreEqual(reality, result);
         }
 
         [TestMethod()]
@@ -84,8 +88,9 @@ namespace algorithmStudy.Services.Tree.Tests
             List<int> result = new List<int>() {
             3,8,9,12,15,17,23,28
             };
-            CollectionAssert.AreEqual(binaryTree.InorderTraversal(binaryTree.Head), result);
-
+            List<int> reality = new List<int>();
+            binaryTree.InorderTraversal(ref reality, binaryTree.Head);
+            CollectionAssert.AreEqual(reality, result);
         }
 
         [TestMethod()]
@@ -103,8 +108,9 @@ namespace algorithmStudy.Services.Tree.Tests
             List<int> result = new List<int>() {
                 8,3,12,9,17,28,23,15
             };
-            CollectionAssert.AreEqual(binaryTree.PostorderTraversal(binaryTree.Head), result);
-
+            List<int> reality = new List<int>();
+            binaryTree.PostorderTraversal(ref reality, binaryTree.Head);
+            CollectionAssert.AreEqual(reality, result);
         }
     }
 }

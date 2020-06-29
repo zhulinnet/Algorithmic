@@ -52,7 +52,7 @@ namespace algorithmStudy.Services.Tree
                     //如果右节点不存在，则作为新结点添加到右下方
                     if (node.Right == null)
                     {
-                        node.Right=new Node<T>() { Data = item };
+                        node.Right = new Node<T>() { Data = item };
                         return;
                     }
                     //大于它则往右移
@@ -110,7 +110,7 @@ namespace algorithmStudy.Services.Tree
         /// <param name="item"></param>
         public void Remove(T item)
         {
-           Remove(item, Head);
+            Remove(item, Head);
         }
         /// <summary>
         /// 删除节点
@@ -186,52 +186,48 @@ namespace algorithmStudy.Services.Tree
         /// 根左右
         /// </summary>
         /// <param name="node"></param>
-        public List<T> PreorderTraversal(Node<T> node)
+        public void PreorderTraversal(ref List<T> result, Node<T> node)
         {
             if (node == null)
             {
-                return result;
+                return;
             }
             result.Add(node.Data);
             Console.WriteLine(node.Data);
-            PreorderTraversal(node.Left);
-            PreorderTraversal(node.Right);
-            return result;
+            PreorderTraversal(ref result, node.Left);
+            PreorderTraversal(ref result, node.Right);
         }
         /// <summary>
         /// 中序遍历-递归实现 
         /// 左根右
         /// </summary>
         /// <param name="node"></param>
-        public List<T> InorderTraversal(Node<T> node)
+        public void InorderTraversal(ref List<T> result, Node<T> node)
         {
             if (node == null)
             {
-                return result;
+                return;
             }
-
-            InorderTraversal(node.Left);
+            InorderTraversal(ref result, node.Left);
             System.Console.WriteLine(node.Data);
             result.Add(node.Data);
-            InorderTraversal(node.Right);
-            return result;
+            InorderTraversal(ref result, node.Right);
         }
         /// <summary>
         /// 后序遍历-递归实现
         /// 左右根
         /// </summary>
         /// <param name="node"></param>
-        public List<T> PostorderTraversal(Node<T> node)
+        public void PostorderTraversal(ref List<T> result, Node<T> node)
         {
             if (node == null)
             {
-                return result;
+                return;
             }
-            PostorderTraversal(node.Left);
-            PostorderTraversal(node.Right);
+            PostorderTraversal(ref result, node.Left);
+            PostorderTraversal(ref result, node.Right);
             result.Add(node.Data);
             System.Console.WriteLine(node.Data);
-            return result;
         }
     }
 }

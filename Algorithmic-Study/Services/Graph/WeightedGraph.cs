@@ -17,17 +17,18 @@ namespace algorithmStudy.Services.Graph
     public class WeightedGraph<T> where T : IComparable
     {
         public List<WeightedGraphNode<T>> NodeList { get; set; }
-        private bool IsWeightChange { get; set; } = false;
-        private List<T> ShortestPath { get; set; } = new List<T>();
-        private List<WeightedGraphNode<T>> BackupList { get; set; } = new List<WeightedGraphNode<T>>();
+        private bool IsWeightChange { get; set; } = true;
+        private List<WeightedGraphNode<T>> BackupList { get; set; } 
         private int updateNum { get; set; } = 0;
         public WeightedGraph()
         {
             this.NodeList = null;
+            this.BackupList = new List<WeightedGraphNode<T>>();
         }
         public WeightedGraph(List<WeightedGraphNode<T>> graphList)
         {
             this.NodeList = graphList;
+            this.BackupList = new List<WeightedGraphNode<T>>();
         }
         /// <summary>
         /// 贝尔曼-福特算法
@@ -128,16 +129,15 @@ namespace algorithmStudy.Services.Graph
             BackupList.Remove(nodeMin);
             Dijkstra(minData,end);
         }
-        public List<T> GetShortest(T start, T end)
+        public void GetShortest(ref List<T> path,T start, T end)
         {
             if (end == null)
             {
-                ShortestPath.Reverse();
-                return ShortestPath;
+                return;
             }
             WeightedGraphNode<T> nodeEnd = NodeList.FirstOrDefault(s => s.Data.CompareTo(end) == 0);
             Dictionary<T, double> children = nodeEnd.Children;
-            ShortestPath.Add(end);
+            path.Add(end);
             if (children != null)
             {
                 var minData = default(T);
@@ -151,10 +151,8 @@ namespace algorithmStudy.Services.Graph
                         break;
                     }
                 }
-                return GetShortest(start, minData);
+                GetShortest(ref path,start, minData);
             }
-            ShortestPath.Reverse();
-            return ShortestPath;
         }
     }
 }

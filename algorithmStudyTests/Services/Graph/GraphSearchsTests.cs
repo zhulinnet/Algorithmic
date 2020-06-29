@@ -32,7 +32,9 @@ namespace algorithmStudy.Services.Graph.Tests
             List<string> result = new List<string>() {
                 "A","B","C","D","E","F","H","I","J","K"
             };
-            CollectionAssert.AreEqual(graphSearchs.BFS("A", "G"), result);
+            List<string> path = new List<string>();
+            graphSearchs.BFS(ref path, "A", "G");
+            CollectionAssert.AreEqual(path, result);
         }
 
         [TestMethod()]
@@ -43,7 +45,9 @@ namespace algorithmStudy.Services.Graph.Tests
             List<string> result = new List<string>() {
                 "Alice","Bob","Diana","Fred","Cynthia","Elise"
             };
-            CollectionAssert.AreEqual(graphSearchs.BFS("Alice"), result);
+            List<string> path = new List<string>();
+            graphSearchs.BFS(ref path, "Alice");
+            CollectionAssert.AreEqual(path, result);
         }
 
         [TestMethod()]
@@ -69,7 +73,9 @@ namespace algorithmStudy.Services.Graph.Tests
             List<string> result = new List<string>() {
                 "A","D","J","L","I","C","H"
             };
-            CollectionAssert.AreEqual(graphSearchs.DFS("A", "G"), result);
+            List<string> path = new List<string>();
+            graphSearchs.DFS(ref path, "A", "G");
+            CollectionAssert.AreEqual(path, result);
         }
 
         [TestMethod()]
@@ -80,7 +86,9 @@ namespace algorithmStudy.Services.Graph.Tests
             List<string> result = new List<string>() {
                 "Alice","Fred","Elise","Diana","Bob","Cynthia"
             };
-            CollectionAssert.AreEqual(graphSearchs.DFS("Alice"), result);
+            List<string> path = new List<string>();
+            graphSearchs.DFS(ref path, "Alice");
+            CollectionAssert.AreEqual(path, result);
         }
     }
 }

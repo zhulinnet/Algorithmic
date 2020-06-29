@@ -24,11 +24,15 @@ namespace algorithmStudy.Services.Graph.Tests
                 new WeightedGraphNode<string>() { Data = "G", Children =new Dictionary<string, double>{  {"E",7},{"F",4} } },
             };
             weightedGraph.NodeList = seed;
-            weightedGraph.BellmanFord();
+       
             List<string> result = new List<string>() {
                 "A","C","D","F","G"
             };
-            CollectionAssert.AreEqual(weightedGraph.GetShortest("A", "G"), result);
+            List<string> path = new List<string>();
+            weightedGraph.BellmanFord();
+            weightedGraph.GetShortest(ref path,"A", "G");
+            path.Reverse();
+            CollectionAssert.AreEqual(path, result);
         }
 
         [TestMethod()]
@@ -50,7 +54,10 @@ namespace algorithmStudy.Services.Graph.Tests
             List<string> result = new List<string>() {
                 "A","B","E","G"
             };
-            CollectionAssert.AreEqual(weightedGraph.GetShortest("A", "G"), result);
+            List<string> path = new List<string>();
+            weightedGraph.GetShortest(ref path, "A", "G");
+            path.Reverse();
+            CollectionAssert.AreEqual(path, result);
         }
     }
 }
