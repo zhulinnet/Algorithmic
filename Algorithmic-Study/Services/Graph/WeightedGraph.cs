@@ -11,6 +11,7 @@ namespace algorithmStudy.Services.Graph
         public T Data { get; set; }
         //初始权重：起点为0，其他顶点为无穷大（∞）
         public double Weight { get; set; } = double.MaxValue;
+        public bool Visited { get; set; } = false;
         public Dictionary<T, double> Children { get; set; }
     }
     public class WeightedGraph<T> where T : IComparable
@@ -18,6 +19,7 @@ namespace algorithmStudy.Services.Graph
         public List<WeightedGraphNode<T>> NodeList { get; set; }
         private bool IsWeightChange { get; set; } = false;
         private List<T> ShortestPath { get; set; } = new List<T>();
+        private List<WeightedGraphNode<T>> BackupList { get; set; } = new List<WeightedGraphNode<T>>();
         private int updateNum { get; set; } = 0;
         public WeightedGraph()
         {
@@ -27,6 +29,9 @@ namespace algorithmStudy.Services.Graph
         {
             this.NodeList = graphList;
         }
+        /// <summary>
+        /// 贝尔曼-福特算法
+        /// </summary>
         public void BellmanFord()
         {
             if (NodeList == null)
@@ -67,7 +72,62 @@ namespace algorithmStudy.Services.Graph
             }
             BellmanFord();
         }
-
+        /// <summary>
+        /// 狄克斯特拉算法
+        /// 如果图中含有负数权重，狄克斯特拉算法可能会无法得出正确答案
+        /// </summary>
+        public void Dijkstra(T current,T end)
+        {
+            if (NodeList == null)
+            {
+                //图为空
+                return;
+            }
+            if (current.CompareTo(end)==0)
+            {
+                return;
+            }
+            WeightedGraphNode<T> nodeCurrent = NodeList.FirstOrDefault(s => s.Data.CompareTo(current) == 0);
+            if (nodeCurrent == null)
+            {
+                return;
+            }
+            nodeCurrent.Visited = true;
+            Dictionary<T, double> children = nodeCurrent.Children;
+            if (children != null)
+            {
+                foreach (var itemC in children)
+                {
+                    WeightedGraphNode<T> nodeChildren = NodeList.FirstOrDefault(s => s.Data.CompareTo(itemC.Key) == 0);
+                    if (nodeChildren.Visited)
+                    {
+                        continue;
+                    }
+                    var currentWeight = nodeCurrent.Weight + itemC.Value;
+                    if (currentWeight.CompareTo(nodeChildren.Weight) < 0)
+                    {
+                        nodeChildren.Weight = currentWeight;
+                    }
+                    BackupList.Add(nodeChildren);
+                }
+            }
+            var minData = default(T);
+            if (BackupList.Count > 0)
+            {
+                double weight = double.MaxValue;
+                foreach (var backup in BackupList)
+                {
+                    if (backup.Weight < weight)
+                    {
+                        weight = backup.Weight;
+                        minData = backup.Data;
+                    }
+                }
+            }
+            WeightedGraphNode<T> nodeMin = NodeList.FirstOrDefault(s => s.Data.CompareTo(minData) == 0);
+            BackupList.Remove(nodeMin);
+            Dijkstra(minData,end);
+        }
         public List<T> GetShortest(T start, T end)
         {
             if (end == null)
