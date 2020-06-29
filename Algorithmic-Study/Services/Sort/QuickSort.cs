@@ -5,7 +5,7 @@ using System.Text;
 
 namespace algorithmStudy.Services.Sort
 {
-    class QuickSort<T> where T : IComparable
+    public class QuickSort<T> where T : IComparable
     {
         public T[] Data { get; set; }
         public QuickSort(T[] data)

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace algorithmStudy.Services.Heap
 {
-    class MaxHeap<T> : IHeap<T>
+    public class MaxHeap<T> : IHeap<T>
                             where T : IComparable
     {
         /// <summary>
@@ -73,13 +73,16 @@ namespace algorithmStudy.Services.Heap
             return max;
         }
 
-        public void display()
+        public List<T> display()
         {
+            List<T> result = new List<T>();
             for (int i = 1; i <= Size; i++)
             {
                 Console.Write(Data[i] + " ");
+                result.Add(Data[i]);
             }
             Console.WriteLine();
+            return result;
         }
     }
 }

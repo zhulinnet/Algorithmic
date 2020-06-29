@@ -56,7 +56,9 @@ namespace algorithmStudy.Services.Heap
         {
             T min = Data[1];
             int parentIdx = 1;
-            Data[1] = Data[Size--];
+            int lastIndex = Size--;
+            Data[1] = Data[lastIndex];
+            Data[lastIndex] = default(T);
             while (parentIdx * 2 <= Size)
             {
                 int leftchildIdx = parentIdx * 2;
@@ -77,13 +79,16 @@ namespace algorithmStudy.Services.Heap
             return min;
         }
 
-        public void display()
+        public List<T> display()
         {
+            List<T> result = new List<T>();
             for (int i = 1; i <= Size; i++)
             {
                 Console.Write(Data[i] + " ");
+                result.Add(Data[i]);
             }
             Console.WriteLine();
+            return result;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace algorithmStudy.Services.Sort
 {
-    class SelectionSort<T> where T : IComparable
+    public class SelectionSort<T> where T : IComparable
     {
         public T[] Data { get; set; }
         public SelectionSort(T[] data)

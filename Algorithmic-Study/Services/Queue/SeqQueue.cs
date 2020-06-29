@@ -14,27 +14,14 @@ namespace algorithmStudy.Services.Queue
         /// <summary>
         ///  构造函数
         /// </summary>
-        /// <param name="length">栈容量</param>
+        /// <param name="length">队列容量</param>
         public SeqQueue(int length)
         {
             Data = new T[length];
             Front = Rear = -1;
             MaxLength = length;
         }
-        public T this[int index]
-        {
-            get
-            {
-                return Data[index];
-            }
-            set
-            {
-                Data[index] = value;
-            }
-        }
-
         public bool isEmpty => Front == Rear;
-
         public int length => Rear + 1;
         public bool isFull => Rear + 1 == MaxLength;
 
@@ -43,16 +30,19 @@ namespace algorithmStudy.Services.Queue
             Front = Rear = -1;
         }
 
-        public void display()
+        public List<T> display()
         {
+            List<T> result = new List<T>();
             if (!isEmpty)
             {
                 for (int i = Front; i <= Rear; i++)
                 {
                     Console.Write(Data[i] + " ");
+                    result.Add(Data[i]);
                 }
                 Console.WriteLine();
             }
+            return result;
         }
 
         public void enter(T item)

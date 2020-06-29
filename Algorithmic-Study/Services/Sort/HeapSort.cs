@@ -5,7 +5,7 @@ using System.Text;
 
 namespace algorithmStudy.Services.Sort
 {
-    class HeapSort<T> where T:IComparable
+    public class HeapSort<T> where T:IComparable
     {
         public T[] Data { get; set; }
         public HeapSort(T[] data)

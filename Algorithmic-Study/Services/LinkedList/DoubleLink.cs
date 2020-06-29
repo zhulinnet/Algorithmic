@@ -14,7 +14,7 @@ using System.Text;
 
 namespace algorithmStudy.Services.LinkedList
 {
-    class DoubleLink<T> : ILinkedList<T>
+    public class DoubleLink<T> : ILinkedList<T>
     {
         public Node<T> Head { get; set; }
         public Node<T> Tail { get; set; }
@@ -24,6 +24,7 @@ namespace algorithmStudy.Services.LinkedList
         public DoubleLink()
         {
             this.Head = null;
+            this.Tail = null;
         }
         /// <summary>
         /// 构造函数
@@ -271,17 +272,20 @@ namespace algorithmStudy.Services.LinkedList
             }
         }
 
-        public void display()
+        public List<T> display()
         {
+            List<T> result = new List<T>();
             Node<T> node = Head;
             int _index = 0;
             while (node != null)
             {
                 Console.Write(node.Data + " ");
+                result.Add(node.Data);
                 node = node.Next;
                 _index++;
             }
             Console.WriteLine();
+            return result;
         }
     }
 }

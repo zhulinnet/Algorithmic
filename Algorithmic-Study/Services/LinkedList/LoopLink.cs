@@ -16,6 +16,7 @@ namespace algorithmStudy.Services.LinkedList
         public LoopLink()
         {
             this.Head = null;
+            this.Tail = null;
         }
         /// <summary>
         /// 构造函数
@@ -288,13 +289,15 @@ namespace algorithmStudy.Services.LinkedList
             return -1;
         }
 
-        public void display()
+        public List<T> display()
         {
+            List<T> result = new List<T>();
             Node<T> node = Head;
             int _index = 0;
             while (node != null)
             {
                 Console.Write(node.Data + " ");
+                result.Add(node.Data);
                 node = node.Next == Head ? null : node.Next;
                 _index++;
             }
@@ -308,6 +311,7 @@ namespace algorithmStudy.Services.LinkedList
                 _index++;
             }
             Console.WriteLine();
+            return result;
         }
 
     }

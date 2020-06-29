@@ -4,7 +4,7 @@ using System.Text;
 
 namespace algorithmStudy.Services.Sort
 {
-    class MergeSort<T> where T : IComparable
+    public class MergeSort<T> where T : IComparable
     {
         public T[] Data { get; set; }
         private T[] SortData { get; set; }

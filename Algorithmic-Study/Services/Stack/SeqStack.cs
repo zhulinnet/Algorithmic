@@ -21,17 +21,6 @@ namespace algorithmStudy.Services.Stack
             Top = -1;
             MaxLength = length;
         }
-        public T this[int index]
-        {
-            get
-            {
-                return Data[index];
-            }
-            set
-            {
-                Data[index] = value;
-            }
-        }
 
         public bool isEmpty => Top==-1;
         public bool isFull => Top + 1 == MaxLength;
@@ -43,16 +32,19 @@ namespace algorithmStudy.Services.Stack
             Top = -1;
         }
 
-        public void display()
+        public List<T> display()
         {
+            List<T> result = new List<T>();
             if (!isEmpty)
             {
                 for (int i = Top; i > -1; i--)
                 {
                     Console.Write(Data[i]+" ");
+                    result.Add(Data[i]);
                 }
                 Console.WriteLine();
             }
+            return result;
         }
 
         public T pop()

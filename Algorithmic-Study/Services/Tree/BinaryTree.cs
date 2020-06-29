@@ -1,10 +1,11 @@
 ﻿using algorithmStudy.Interfaces;
 using algorithmStudy.Models.Tree;
 using System;
+using System.Collections.Generic;
 
 namespace algorithmStudy.Services.Tree
 {
-    class BinaryTree<T> : ITree<T>
+    public class BinaryTree<T> : ITree<T>
                        where T : IComparable
     {
         public Node<T> Head { get; set; }
@@ -179,48 +180,58 @@ namespace algorithmStudy.Services.Tree
                 return node.Right;
             }
         }
+        private List<T> result { get; set; } = new List<T>();
         /// <summary>
         /// 先序遍历-递归实现   
         /// 根左右
         /// </summary>
         /// <param name="node"></param>
-        public void PreorderTraversal(Node<T> node)
+        public List<T> PreorderTraversal(Node<T> node)
         {
             if (node == null)
             {
-                return;
+                return result;
             }
+            result.Add(node.Data);
             Console.WriteLine(node.Data);
             PreorderTraversal(node.Left);
             PreorderTraversal(node.Right);
+            return result;
         }
         /// <summary>
         /// 中序遍历-递归实现 
         /// 左根右
         /// </summary>
         /// <param name="node"></param>
-        public void InorderTraversal(Node<T> node)
+        public List<T> InorderTraversal(Node<T> node)
         {
             if (node == null)
-                return;
+            {
+                return result;
+            }
 
             InorderTraversal(node.Left);
             System.Console.WriteLine(node.Data);
+            result.Add(node.Data);
             InorderTraversal(node.Right);
+            return result;
         }
         /// <summary>
         /// 后序遍历-递归实现
         /// 左右根
         /// </summary>
         /// <param name="node"></param>
-        public void PostorderTraversal(Node<T> node)
+        public List<T> PostorderTraversal(Node<T> node)
         {
             if (node == null)
-                return;
-
+            {
+                return result;
+            }
             PostorderTraversal(node.Left);
             PostorderTraversal(node.Right);
+            result.Add(node.Data);
             System.Console.WriteLine(node.Data);
+            return result;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace algorithmStudy.Services.ArraySearch
 {
-    class BinarySearch<T> where T : IComparable
+    public class BinarySearch<T> where T : IComparable
     {
         //必须为顺序列表，从小到大
         public T[] Data { get; set; }

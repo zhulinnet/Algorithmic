@@ -4,7 +4,7 @@ using System.Text;
 
 namespace algorithmStudy.Services.ArraySearch
 {
-    class LinearSearch<T> where T : IComparable
+    public class LinearSearch<T> where T : IComparable
     {
         public T[] Data { get; set; }
         public LinearSearch(T[] data)
