@@ -1,9 +1,8 @@
-﻿using algorithmStudy.Services.ArraySearch;
-using algorithmStudy.Services.Heap;
-using algorithmStudy.Services.Queue;
-using algorithmStudy.Services.Sort;
-using algorithmStudy.Services.Tree;
+﻿
+
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace algorithmStudy
 {
@@ -11,7 +10,7 @@ namespace algorithmStudy
     {
         static void Main(string[] args)
         {
-
         }
     }
 }
+
