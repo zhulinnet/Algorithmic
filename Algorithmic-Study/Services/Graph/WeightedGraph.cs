@@ -27,7 +27,7 @@ namespace algorithmStudy.Services.Graph
         /// <summary>
         /// 已经更新权重的轮数（贝尔曼-福特算法）
         /// </summary>
-        private int updateNum { get; set; } = 0;
+        private int UpdateNum { get; set; } = 0;
         /// <summary>
         /// 备选节点（狄克斯特拉算法）
         /// </summary>
@@ -53,8 +53,8 @@ namespace algorithmStudy.Services.Graph
                 //图为空
                 return;
             }
-            updateNum++;
-            if (updateNum >= NodeList.Count)
+            UpdateNum++;
+            if (UpdateNum >= NodeList.Count)
             {
                 //该图有负权回路
                 return;
