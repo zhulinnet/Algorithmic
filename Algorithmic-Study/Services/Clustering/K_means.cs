@@ -1,4 +1,5 @@
-﻿using System;
+﻿using algorithmStudy.Models.Clustering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -6,12 +7,7 @@ using System.Text;
 
 namespace algorithmStudy.Services.Clustering
 {
-    public class Pointer
-    {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
-    }
+  
     public class Cluster
     {
         public Pointer Center { get; set; }
