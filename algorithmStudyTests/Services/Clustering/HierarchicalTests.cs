@@ -8,7 +8,7 @@ using algorithmStudy.Models.Clustering;
 namespace algorithmStudy.Services.Clustering.Tests
 {
     [TestClass()]
-    public class K_meansTests
+    public class HierarchicalTests
     {
         [TestMethod()]
         public void ComputeTest()
@@ -24,8 +24,24 @@ namespace algorithmStudy.Services.Clustering.Tests
                 new  Pointer(){X=21,Y=8,Z=0 },
                 new  Pointer(){X=11,Y=6,Z=0 },
                 new  Pointer(){X=21,Y=9,Z=0 },
+                new  Pointer(){X=13,Y=6,Z=0 },
+                new  Pointer(){X=20,Y=19,Z=0 },
+                  new  Pointer(){X=20,Y=19,Z=0 },
+                      new  Pointer(){X=1,Y=21,Z=0 },
+                new  Pointer(){X=12,Y=23,Z=0 },
+                new  Pointer(){X=10,Y=2,Z=0 },
+                new  Pointer(){X=3,Y=10,Z=0 },
+                new  Pointer(){X=13,Y=12,Z=0 },
+                new  Pointer(){X=4,Y=15,Z=0 },
+                new  Pointer(){X=9,Y=6,Z=0 },
+                new  Pointer(){X=21,Y=8,Z=0 },
+                new  Pointer(){X=11,Y=6,Z=0 },
+                new  Pointer(){X=21,Y=9,Z=0 },
+                new  Pointer(){X=13,Y=6,Z=0 },
+                new  Pointer(){X=20,Y=19,Z=0 },
+                  new  Pointer(){X=20,Y=19,Z=0 },
             };
-            K_means kmeans = new K_means(pointers);
+            Hierarchical kmeans = new Hierarchical(pointers);
             kmeans.Compute(3);
         }
     }

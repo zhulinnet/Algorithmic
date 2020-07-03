@@ -7,58 +7,62 @@ using System.Text;
 
 namespace algorithmStudy.Services.Clustering
 {
-  
-    public class Cluster
-    {
-        public Pointer Center { get; set; }
-        public List<Pointer> Pointers { get; set; }
-        public int IsChange { get; set; }
-        public Cluster()
-        {
-            this.IsChange = 1;
-            this.Pointers = new List<Pointer>();
-        }
-        public void RefreshCenter()
-        {
-            //计算各个簇中数据的重心，然后将簇的中心点移动到这个位置
-            var center = this.Center;
-            var minDistance = double.MaxValue;
-            foreach (var current in this.Pointers)
-            {
-                var totalDistance = 0d;
-                foreach (var other in this.Pointers)
-                {
-                    if (current == other)
-                    {
-                        continue;
-                    }
-                    var distance = Math.Pow(current.X - other.X, 2)
-                                + Math.Pow(current.Y - other.Y, 2)
-                                + Math.Pow(current.Z - other.Z, 2);
-                    distance = Math.Abs(distance);
-                    totalDistance += distance;
-                }
-                if (totalDistance < minDistance)
-                {
-                    center = current;
-                }
-            }
-            if (this.Center == center)
-            {
-                this.IsChange = 0;
-                return;
-            }
-            this.Center = center;
-            this.IsChange = 1;
-        }
-    }
     public class K_means
     {
+        public class Cluster
+        {
+            public Pointer Center { get; set; }
+            public List<Pointer> Pointers { get; set; }
+            public int IsChange { get; set; }
+            public Cluster()
+            {
+                this.IsChange = 1;
+                this.Pointers = new List<Pointer>();
+            }
+            public void RefreshCenter()
+            {
+                //计算各个簇中数据的重心，然后将簇的中心点移动到这个位置
+                var center = this.Center;
+                var minDistance = double.MaxValue;
+                foreach (var current in this.Pointers)
+                {
+                    var totalDistance = 0d;
+                    foreach (var other in this.Pointers)
+                    {
+                        if (current == other)
+                        {
+                            continue;
+                        }
+                        var distance = Math.Pow(current.X - other.X, 2)
+                                    + Math.Pow(current.Y - other.Y, 2)
+                                    + Math.Pow(current.Z - other.Z, 2);
+                        distance = Math.Abs(distance);
+                        totalDistance += distance;
+                    }
+                    if (totalDistance < minDistance)
+                    {
+                        center = current;
+                    }
+                }
+                if (this.Center == center)
+                {
+                    this.IsChange = 0;
+                    return;
+                }
+                this.Center = center;
+                this.IsChange = 1;
+            }
+        }
         public List<Pointer> Pointers { get; set; }
         public K_means(List<Pointer> pointers)
         {
             this.Pointers = pointers;
         }
+        /// <summary>
+        /// K_means算法
+        /// </summary>
+        /// <param name="centerCount">簇个数</param>
+        /// <returns></returns>
         public List<Cluster> Compute(int centerCount)
         {
             List<Cluster> clusters = new List<Cluster>(centerCount);
