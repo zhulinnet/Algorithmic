@@ -4,15 +4,22 @@ using algorithmStudy.Services.Clustering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static algorithmStudy.Services.LeetCode._4;
 
 namespace algorithmStudy
 {
     class Program
-    { 
-        static void Main(string[] args)
+    {
+        static void Main()
         {
-            Hanoi hanoi = new Hanoi();
-            hanoi.Move('A','B','C',5);
+            char[][] grid = new char[][]
+                {
+                    new char[] {'1','1','0','0','0'},
+                    new char[] { '1','1','0','0','0' },
+                    new char[] { '0','0','1','0','0'},
+                    new char[] { '0', '0', '0', '1', '1' }
+                };
+            Console.WriteLine(new Solution().NumIslands(grid));
         }
     }
 }
