@@ -4,7 +4,7 @@ using algorithmStudy.Services.Clustering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._4;
+using static algorithmStudy.Services.LeetCode._7;
 
 namespace algorithmStudy
 {
@@ -12,14 +12,16 @@ namespace algorithmStudy
     {
         static void Main()
         {
-            char[][] grid = new char[][]
-                {
-                    new char[] {'1','1','0','0','0'},
-                    new char[] { '1','1','0','0','0' },
-                    new char[] { '0','0','1','0','0'},
-                    new char[] { '0', '0', '0', '1', '1' }
-                };
-            Console.WriteLine(new Solution().NumIslands(grid));
+            //char[][] grid = new char[][]
+            //    {
+            //        new char[] {'1','1','0','0','0'},
+            //        new char[] { '1','1','0','0','0' },
+            //        new char[] { '0','0','1','0','0'},
+            //        new char[] { '0', '0', '0', '1', '1' }
+            //    };
+            //Console.WriteLine(new Solution().NumIslands(grid));
+
+            Console.WriteLine(new Solution().RepeatedSubstringPattern("abcabcabcabc"));
         }
     }
 }
