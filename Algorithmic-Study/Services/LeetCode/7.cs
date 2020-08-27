@@ -39,43 +39,50 @@ namespace algorithmStudy.Services.LeetCode
             public bool RepeatedSubstringPattern(string s)
             {
                 //return (s + s).IndexOf(s, 1) != s.Length;
-                Queue<string> queueStr = new Queue<string>();
-                int count_repeat = 0, index = 0;
-                bool IsStartRepeat = false;
-                foreach (var item in s)
-                {
-                    index++;
-                    var str = item.ToString();
-                    if (!queueStr.Contains(str))
-                    {
-                        if (!IsStartRepeat)
-                        {
-                            count_repeat++;
-                        }
-                        queueStr.Enqueue(str);
-                    }
-                    else
-                    {
-                       
-                        IsStartRepeat = true;
-                        var current = queueStr.Dequeue();
-                        if (str != current)
-                        {
-                            return false;
-                        }
-                        if (queueStr.Count<0|| s.Length - (index ) >= count_repeat)
-                        {
-                            queueStr.Enqueue(str);
-                        }
+                //if (string.IsNullOrEmpty(s))
+                //{ 
+                //    return false;
+                //}
+                //Queue<string> queueStr = new Queue<string>();
+                //int count_repeat = 0, index = 0;
+                //bool IsStartRepeat = false;
+                //foreach (var item in s)
+                //{
+                //    index++;
+                //    var str = item.ToString();
+                //    if (!queueStr.Contains(str))
+                //    {
+                //        if (!IsStartRepeat)
+                //        {
+                //            count_repeat++;
+                //        }
+                //        queueStr.Enqueue(str);
+                //    }
+                //    else
+                //    {
+                //        IsStartRepeat = true;
+                //        if (index - 1 == count_repeat&&(s.Length - (index-1)) % count_repeat != 0)
+                //        {
+                //            return false;
+                //        }
+                //        var current = queueStr.Dequeue();
+                //        if (str != current)
+                //        {
+                //            return false;
+                //        }
+                //        if (queueStr.Count<0|| s.Length - (index ) >= count_repeat)
+                //        {
+                //            queueStr.Enqueue(str);
+                //        }
                        
 
-                    }
-                }
-                if (queueStr.Count >0)
-                {
-                    return false;
-                }
-                return true;
+                //    }
+                //}
+                //if (queueStr.Count >0)
+                //{
+                //    return false;
+                //}
+                //return true;
             }
         }
     }

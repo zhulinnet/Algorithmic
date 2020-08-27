@@ -21,7 +21,7 @@ namespace algorithmStudy
             //    };
             //Console.WriteLine(new Solution().NumIslands(grid));
 
-            Console.WriteLine(new Solution().RepeatedSubstringPattern("abcabcabcabc"));
+            Console.WriteLine(new Solution().RepeatedSubstringPattern("abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa"));
         }
     }
 }
