@@ -38,7 +38,7 @@ namespace algorithmStudy.Services.LeetCode
         {
             public bool RepeatedSubstringPattern(string s)
             {
-                //return (s + s).IndexOf(s, 1) != s.Length;
+                return (s + s).IndexOf(s, 1) != s.Length;
                 //if (string.IsNullOrEmpty(s))
                 //{ 
                 //    return false;

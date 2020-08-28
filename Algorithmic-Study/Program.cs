@@ -4,7 +4,7 @@ using algorithmStudy.Services.Clustering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._7;
+using static algorithmStudy.Services.LeetCode._8;
 
 namespace algorithmStudy
 {
@@ -21,7 +21,9 @@ namespace algorithmStudy
             //    };
             //Console.WriteLine(new Solution().NumIslands(grid));
 
-            Console.WriteLine(new Solution().RepeatedSubstringPattern("abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa"));
+            //Console.WriteLine(new Solution().RepeatedSubstringPattern("abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa"));
+            Console.WriteLine(new Solution().JudgeCircle("LLUDRR"));
+
         }
     }
 }
