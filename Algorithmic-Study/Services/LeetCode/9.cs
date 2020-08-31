@@ -26,21 +26,38 @@ namespace algorithmStudy.Services.LeetCode
          */
         public class Solution
         {
+            private readonly string[] dic = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
             public IList<string> LetterCombinations(string digits)
             {
-                List<string> result = new List<string>();
-                Dictionary<int, string> dic = new Dictionary<int, string>();
-                dic.Add(2, "abc");
-                dic.Add(3, "def");
-                dic.Add(4, "ghi");
-                dic.Add(5, "jkl");
-                dic.Add(6, "mno");
-                dic.Add(7, "pqrs");
-                dic.Add(8, "tuv");
-                dic.Add(9, "wxyz");
+                List<string> combinations = new List<string>();
                 foreach (var item in digits)
                 {
-
+                    backtrack(ref combinations, int.Parse(item.ToString()));
+                }
+                return combinations;
+            }
+            public void backtrack(ref List<string> combinations,int digit=0)
+            {
+                string letters = dic[digit];
+                if (combinations.Count == 0)
+                {
+                    foreach (var item in letters)
+                    {
+                        combinations.Add(item.ToString());
+                    }
+                }
+                else
+                {
+                    int count = combinations.Count;
+                    for (int i = 0; i < count; i++)
+                    {
+                        string combination = combinations[0];
+                        combinations.Remove(combination);
+                        foreach (var item in letters)
+                        {
+                            combinations.Add(combination+item.ToString());
+                        }
+                    }
                 }
             }
         }
