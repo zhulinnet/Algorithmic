@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace algorithmStudy.Services.LeetCode.CodingInterviews
@@ -43,16 +45,30 @@ namespace algorithmStudy.Services.LeetCode.CodingInterviews
 
         public class Solution
         {
+            private int inIndex = 0;
+            private int preIndex = 0;
+
             public TreeNode BuildTree(int[] preorder, int[] inorder)
             {
-                if (preorder == null || preorder.Length == 0)
+                return build(preorder, inorder, Int32.MinValue);
+            }
+
+            private TreeNode build(int[] preorder, int[] inorder, int stop)
+            {
+                if (preIndex >= preorder.Length)
+                    return null;
+                if (inorder[inIndex] == stop)
                 {
+                    inIndex++;
                     return null;
                 }
-                TreeNode root = new TreeNode(preorder[0]);
 
-
+                TreeNode node = new TreeNode(preorder[preIndex++]);
+                node.left = build(preorder, inorder, node.val);
+                node.right = build(preorder, inorder, stop);
+                return node;
             }
+
         }
     }
 }

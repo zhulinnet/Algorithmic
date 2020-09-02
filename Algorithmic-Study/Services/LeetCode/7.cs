@@ -38,51 +38,40 @@ namespace algorithmStudy.Services.LeetCode
         {
             public bool RepeatedSubstringPattern(string s)
             {
-                return (s + s).IndexOf(s, 1) != s.Length;
-                //if (string.IsNullOrEmpty(s))
-                //{ 
-                //    return false;
-                //}
-                //Queue<string> queueStr = new Queue<string>();
-                //int count_repeat = 0, index = 0;
-                //bool IsStartRepeat = false;
-                //foreach (var item in s)
-                //{
-                //    index++;
-                //    var str = item.ToString();
-                //    if (!queueStr.Contains(str))
-                //    {
-                //        if (!IsStartRepeat)
-                //        {
-                //            count_repeat++;
-                //        }
-                //        queueStr.Enqueue(str);
-                //    }
-                //    else
-                //    {
-                //        IsStartRepeat = true;
-                //        if (index - 1 == count_repeat&&(s.Length - (index-1)) % count_repeat != 0)
-                //        {
-                //            return false;
-                //        }
-                //        var current = queueStr.Dequeue();
-                //        if (str != current)
-                //        {
-                //            return false;
-                //        }
-                //        if (queueStr.Count<0|| s.Length - (index ) >= count_repeat)
-                //        {
-                //            queueStr.Enqueue(str);
-                //        }
-                       
-
-                //    }
-                //}
-                //if (queueStr.Count >0)
-                //{
-                //    return false;
-                //}
-                //return true;
+                //return (s + s).IndexOf(s, 1) != s.Length;
+                int length = s.Length;
+                for (int i = 1; i <= length/2; i++)
+                {
+                    //判断字符串可以被分为几种类型的子串
+                    if (length % i == 0)
+                    {
+                        bool flag = true;
+                        string first ="";
+                        for (int j = 0; j < length; j=j+i)
+                        {
+                            if (j == 0)
+                            {
+                                first = s.Substring(j, i);
+                            }
+                            else 
+                            {
+                                //判断剩余子串中是否有与第一个子串不相等的情况
+                                string current = s.Substring(j, i);
+                                if (current!=first)
+                                {
+                                    flag = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if (flag)
+                        {
+                            //当其中一种结果为真时跳出
+                            return true;
+                        }
+                    }
+                }
+                return false;
             }
         }
     }
