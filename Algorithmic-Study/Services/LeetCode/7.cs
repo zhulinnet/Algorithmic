@@ -8,71 +8,62 @@ namespace algorithmStudy.Services.LeetCode
     class _7
     {
         /*
-         * 给定一个非空的字符串，判断它是否可以由它的一个子串重复多次构成。给定的字符串只含有小写英文字母，并且长度不超过10000。
+            给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
 
-            示例 1:
-            
-            输入: "abab"
-            
-            输出: True
+            示例 1:
 
-            解释: 可由子字符串 "ab" 重复两次构成。
-            示例 2:
+            输入: 123
+            输出: 321
+             示例 2:
             
-            输入: "aba"
-            
-            输出: False
+            输入: -123
+            输出: -321
             示例 3:
             
-            输入: "abcabcabcabc"
+            输入: 120
+            输出: 21
+            注意:
             
-            输出: True
-            
-            解释: 可由子字符串 "abc" 重复四次构成。 (或者子字符串 "abcabc" 重复两次构成。)
+            假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。
             
             来源：力扣（LeetCode）
-            链接：https://leetcode-cn.com/problems/repeated-substring-pattern
-            著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-         */
+            链接：https://leetcode-cn.com/problems/reverse-integer
+            著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。         */
         public class Solution
         {
-            public bool RepeatedSubstringPattern(string s)
+            public int Reverse(int x)
             {
-                //return (s + s).IndexOf(s, 1) != s.Length;
-                int length = s.Length;
-                for (int i = 1; i <= length/2; i++)
+                try
                 {
-                    //判断字符串可以被分为几种类型的子串
-                    if (length % i == 0)
+                    string newInt = x>0?"":"-";
+                    foreach (var item in x.ToString().Replace("-","").Reverse())
                     {
-                        bool flag = true;
-                        string first ="";
-                        for (int j = 0; j < length; j=j+i)
-                        {
-                            if (j == 0)
-                            {
-                                first = s.Substring(j, i);
-                            }
-                            else 
-                            {
-                                //判断剩余子串中是否有与第一个子串不相等的情况
-                                string current = s.Substring(j, i);
-                                if (current!=first)
-                                {
-                                    flag = false;
-                                    break;
-                                }
-                            }
-                        }
-                        if (flag)
-                        {
-                            //当其中一种结果为真时跳出
-                            return true;
-                        }
+                        newInt += item;
                     }
+                    return Convert.ToInt32(newInt);
                 }
-                return false;
+                catch 
+                {
+                    return 0;
+                } 
             }
         }
+        public class Solution1
+        {
+            public int Reverse(int x)
+            {
+                int num= 0;
+                while (x != 0)
+                {
+                    int pop = x % 10;
+                    x = x / 10;
+                    if (num > Int32.MaxValue / 10 || (num == Int32.MaxValue / 10 && pop > 7)) return 0;
+                    if (num < Int32.MinValue / 10 || (num == Int32.MinValue / 10 && pop < -8)) return 0;
+                    num = 10 * num + pop;
+                }
+                return num;
+            }
+        }
+
     }
 }

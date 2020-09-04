@@ -24,7 +24,7 @@ namespace algorithmStudy
             //    };
             //Console.WriteLine(new Solution().NumIslands(grid));
 
-            Console.WriteLine(new Solution().RepeatedSubstringPattern("abaababaab"));
+            //Console.WriteLine(new Solution1().RepeatedSubstringPattern("abacababacaba"));
             //Console.WriteLine(new Solution().JudgeCircle("LLUDRR"));
             //Console.WriteLine(new Solution().LetterCombinations("223"));
             //List<List<int>> rooms = new List<List<int>>();
@@ -37,7 +37,8 @@ namespace algorithmStudy
             //1, 5, 2, 33, 41, 5, 8, 9, 0
             //Console.WriteLine(new Solution1().PredictTheWinner(new int[] { 1, 5, 2,4,6 }));
             //Console.WriteLine(new Solution().IsNumber("4e+"));
-
+            //Console.WriteLine(new Solution().ThirdMax(new int[] { 1, 2 }));
+            Console.WriteLine(new Solution1().Reverse(-2133333333));
         }
     }
 }
