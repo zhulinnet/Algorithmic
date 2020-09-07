@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._7;
+using static algorithmStudy.Services.LeetCode._347;
 //using static algorithmStudy.Services.LeetCode.CodingInterviews._20;
 
 namespace algorithmStudy
@@ -38,7 +38,18 @@ namespace algorithmStudy
             //Console.WriteLine(new Solution1().PredictTheWinner(new int[] { 1, 5, 2,4,6 }));
             //Console.WriteLine(new Solution().IsNumber("4e+"));
             //Console.WriteLine(new Solution().ThirdMax(new int[] { 1, 2 }));
-            Console.WriteLine(new Solution1().Reverse(-2133333333));
+            //Console.WriteLine(new Solution1().Reverse(-2133333333));
+            //TreeNode root = new TreeNode(3);
+            //root.left = new TreeNode(9);
+            //root.left.left = new TreeNode(1);
+            //root.right = new TreeNode(20);
+            //root.right.left = new TreeNode(15);
+            //root.right.right = new TreeNode(7);
+            //root.right.left.left= new TreeNode(15);
+            //root.right.left.right = new TreeNode(7);
+            //root.right.left = new TreeNode(1);
+            //Console.WriteLine(new Solution1().LevelOrderBottom(root));
+            Console.WriteLine(new Solution().TopKFrequent(new int[] { 1, 1, 1, 2, 2, 3 },2));
         }
     }
 }

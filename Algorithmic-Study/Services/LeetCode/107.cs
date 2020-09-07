@@ -71,5 +71,41 @@ namespace algorithmStudy.Services.LeetCode
                 return backup.ToArray();
             }
         }
+        public class Solution1
+        {
+            public IList<IList<int>> LevelOrderBottom(TreeNode root)
+            {
+                Queue<TreeNode> queue = new Queue<TreeNode>();
+                Stack<IList<int>> backup = new Stack<IList<int>>();
+                BFS(root, ref backup, ref queue);
+                return backup.ToArray();
+            }
+            private void BFS(TreeNode root, ref Stack<IList<int>> backup, ref Queue<TreeNode> queue)
+            {
+                if (root == null)
+                {
+                    return;
+                }
+                queue.Enqueue(root);
+                do
+                {
+                    int num = queue.Count;
+                    IList<int> list = new List<int>();
+                    for (int i = 0; i < num; ++i)
+                    {
+                        TreeNode cur = queue.Dequeue();
+                        if (cur != null)
+                        {
+                            list.Add(cur.val);
+                            queue.Enqueue(cur.left);
+                            queue.Enqueue(cur.right);
+                        }
+                    }
+                    if (list.Count > 0)
+                        backup.Push(list);
+                }
+                while (queue.Count > 0);
+            }
+        }
     }
 }
