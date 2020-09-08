@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._347;
+using static algorithmStudy.Services.LeetCode._77;
 //using static algorithmStudy.Services.LeetCode.CodingInterviews._20;
 
 namespace algorithmStudy
@@ -49,7 +49,9 @@ namespace algorithmStudy
             //root.right.left.right = new TreeNode(7);
             //root.right.left = new TreeNode(1);
             //Console.WriteLine(new Solution1().LevelOrderBottom(root));
-            Console.WriteLine(new Solution().TopKFrequent(new int[] { 1, 1, 1, 2, 2, 3 },2));
+            //Console.WriteLine(new Solution().TopKFrequent(new int[] { 1, 1, 1, 2, 2, 3 },2));
+            //Console.WriteLine(new Solution().IsValid("{{{}}}"));
+            Console.WriteLine(new Solution().Combine(4,2));
         }
     }
 }
