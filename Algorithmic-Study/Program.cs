@@ -2,11 +2,12 @@
 
 using algorithmStudy.Services.Clustering;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._77;
+using static algorithmStudy.Services.LeetCode._39;
 //using static algorithmStudy.Services.LeetCode.CodingInterviews._20;
 
 namespace algorithmStudy
@@ -51,7 +52,50 @@ namespace algorithmStudy
             //Console.WriteLine(new Solution1().LevelOrderBottom(root));
             //Console.WriteLine(new Solution().TopKFrequent(new int[] { 1, 1, 1, 2, 2, 3 },2));
             //Console.WriteLine(new Solution().IsValid("{{{}}}"));
-            Console.WriteLine(new Solution().Combine(4,2));
+            //Console.WriteLine(new Solution().Combine(4,2));
+            //var bits = new BitArray(3);
+            //bits[1] = true;
+            //bits[2] = true;
+            //bits[0] = true;
+            //var bits1 = new BitArray(3);
+            //bits1[1] = true;
+            //bits1[2] = true;
+            //bits1[0] = false;
+            //bits.Xor(bits1);                 // Bitwise exclusive-OR bits with itself
+            //Console.WriteLine(bits[1]);     // False
+
+            //Console.WriteLine(new Solution().CombinationSum(new int[] { 2, 3, 6, 7 }, 7));
+
+        }
+        public class Solution
+        {
+            public string ModifyString(string s)
+            {
+                char[] letters = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+                char[] chars = s.ToCharArray();
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    var current = chars[i];
+                    if (current == '?')
+                    {
+                        var pre = i > 0 ? chars[i - 1] : ' ';
+                        var next = i < chars.Length - 1 ? chars[i + 1] : ' ';
+                        for (char j = 'a'; j <= 'z'; j++)
+                        {
+                            if (j == pre || j == next)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                chars[i] = j;
+                                break;
+                            }
+                        }
+                    }
+                }
+                return new string(chars);
+            }
         }
     }
 }
