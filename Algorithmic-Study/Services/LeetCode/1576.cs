@@ -47,5 +47,35 @@ namespace algorithmStudy.Services.LeetCode
         链接：https://leetcode-cn.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters
         著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
          */
+        public class Solution
+        {
+            public string ModifyString(string s)
+            {
+                char[] letters = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+                char[] chars = s.ToCharArray();
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    var current = chars[i];
+                    if (current == '?')
+                    {
+                        var pre = i > 0 ? chars[i - 1] : ' ';
+                        var next = i < chars.Length - 1 ? chars[i + 1] : ' ';
+                        for (char j = 'a'; j <= 'z'; j++)
+                        {
+                            if (j == pre || j == next)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                chars[i] = j;
+                                break;
+                            }
+                        }
+                    }
+                }
+                return new string(chars);
+            }
+        }
     }
 }

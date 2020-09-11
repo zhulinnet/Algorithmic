@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._39;
+using static algorithmStudy.Services.LeetCode._40;
 //using static algorithmStudy.Services.LeetCode.CodingInterviews._20;
 
 namespace algorithmStudy
@@ -64,38 +64,8 @@ namespace algorithmStudy
             //bits.Xor(bits1);                 // Bitwise exclusive-OR bits with itself
             //Console.WriteLine(bits[1]);     // False
 
-            //Console.WriteLine(new Solution().CombinationSum(new int[] { 2, 3, 6, 7 }, 7));
+            Console.WriteLine(new Solution().CombinationSum2(new int[] { 2, 5, 2, 1, 2 }, 5));
 
-        }
-        public class Solution
-        {
-            public string ModifyString(string s)
-            {
-                char[] letters = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-                char[] chars = s.ToCharArray();
-                for (int i = 0; i < chars.Length; i++)
-                {
-                    var current = chars[i];
-                    if (current == '?')
-                    {
-                        var pre = i > 0 ? chars[i - 1] : ' ';
-                        var next = i < chars.Length - 1 ? chars[i + 1] : ' ';
-                        for (char j = 'a'; j <= 'z'; j++)
-                        {
-                            if (j == pre || j == next)
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                chars[i] = j;
-                                break;
-                            }
-                        }
-                    }
-                }
-                return new string(chars);
-            }
         }
     }
 }
