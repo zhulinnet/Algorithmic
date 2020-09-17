@@ -59,5 +59,35 @@ namespace algorithmStudy.Services.LeetCode
             }
 
         }
+        public class Solution1
+        {
+            public TreeNode InvertTree(TreeNode root)
+            {
+                if (root == null)
+                {
+                    return root;
+                }
+                Queue<TreeNode> queue = new Queue<TreeNode>();
+                queue.Enqueue(root);
+                while (queue.Count> 0)
+                {
+                    TreeNode current = queue.Dequeue();
+                    TreeNode right = current.right;
+                    TreeNode left = current.left;
+                    current.right = left;
+                    current.left = right;
+                    if (current.right != null)
+                    {
+                        queue.Enqueue(current.right);
+                    }
+                    if (current.left != null)
+                    {
+                        queue.Enqueue(current.left);
+                    }
+                }
+                return root;
+            }
+
+        }
     }
 }
