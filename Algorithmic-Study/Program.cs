@@ -7,8 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-//using static algorithmStudy.Services.LeetCode._58;
-using static algorithmStudy.Services.LeetCode.CodingInterviews._58;
+using static algorithmStudy.Services.LeetCode._47;
+//using static algorithmStudy.Services.LeetCode.CodingInterviews._58;
 
 namespace algorithmStudy
 {
@@ -70,8 +70,8 @@ namespace algorithmStudy
             //root.right = new TreeNode(2147483647);
             //Console.WriteLine(new Solution().AverageOfLevels(root));
             //Console.WriteLine(new Solution().HammingDistance(2,4));
-            Console.WriteLine(new Solution1().ReverseLeftWords("abcdefg",2));
-
+            //Console.WriteLine(new Solution1().ReverseLeftWords("abcdefg",2));
+            Console.WriteLine(new Solution().PermuteUnique(new int[] { 1,2,1 }));
             //Console.WriteLine(new Solution().Exist(new char[][] {new char[]{  'C', 'A','A' }, new char[] { 'A', 'A', 'A' }, new char[] { 'B', 'C', 'D'} }, "AAB"));
         }
     }
