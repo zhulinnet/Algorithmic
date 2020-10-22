@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._404;
+using static algorithmStudy.Services.LeetCode._763;
 //using static algorithmStudy.Services.LeetCode.CodingInterviews._58;
 
 namespace algorithmStudy
@@ -73,13 +73,14 @@ namespace algorithmStudy
             //Console.WriteLine(new Solution1().ReverseLeftWords("abcdefg",2));
             //Console.WriteLine(new Solution().PermuteUnique(new int[] { 1,2,1 }));
             //Console.WriteLine(new Solution().Exist(new char[][] {new char[]{  'C', 'A','A' }, new char[] { 'A', 'A', 'A' }, new char[] { 'B', 'C', 'D'} }, "AAB"));
-            TreeNode root = new TreeNode(3);
-            root.left = new TreeNode(9);
-            root.left.left = new TreeNode(1);
-            root.right = new TreeNode(20);
-            root.right.left = new TreeNode(15);
-            root.right.right = new TreeNode(7);
-            Console.WriteLine(new Solution().SumOfLeftLeaves(root));
+            //TreeNode root = new TreeNode(3);
+            //root.left = new TreeNode(9);
+            //root.left.left = new TreeNode(1);
+            //root.right = new TreeNode(20);
+            //root.right.left = new TreeNode(15);
+            //root.right.right = new TreeNode(7);
+            //Console.WriteLine(new Solution().SumOfLeftLeaves(root));
+            Console.WriteLine(new Solution().PartitionLabels("ababcbacadefegdehijhklij"));
         }
     }
 }
