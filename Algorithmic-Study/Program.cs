@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._763;
+using static algorithmStudy.Services.LeetCode._1207;
 //using static algorithmStudy.Services.LeetCode.CodingInterviews._58;
 
 namespace algorithmStudy
@@ -80,7 +80,7 @@ namespace algorithmStudy
             //root.right.left = new TreeNode(15);
             //root.right.right = new TreeNode(7);
             //Console.WriteLine(new Solution().SumOfLeftLeaves(root));
-            Console.WriteLine(new Solution().PartitionLabels("ababcbacadefegdehijhklij"));
+            Console.WriteLine(new Solution().UniqueOccurrences(new int[] { 1, 2, 2, 1, 1, 3 }));
         }
     }
 }
