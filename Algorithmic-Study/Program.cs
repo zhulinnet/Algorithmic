@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._463;
+using static algorithmStudy.Services.LeetCode._349;
 //using static algorithmStudy.Services.LeetCode.CodingInterviews._58;
 
 namespace algorithmStudy
@@ -80,14 +80,15 @@ namespace algorithmStudy
             //root.right.left = new TreeNode(15);
             //root.right.right = new TreeNode(7);
             //Console.WriteLine(new Solution().SumOfLeftLeaves(root));
-            int[][] grid = new int[][]
-                {
-                    new int[] {0,1,0,0},
-                    new int[] { 1,1,1,0},
-                    new int[] { 0,1,0,0},
-                    new int[] { 1, 1, 0, 0 }
-                };
-            Console.WriteLine(new Solution().IslandPerimeter(grid));
+            //int[][] grid = new int[][]
+            //    {
+            //        new int[] {0,1,0,0},
+            //        new int[] { 1,1,1,0},
+            //        new int[] { 0,1,0,0},
+            //        new int[] { 1, 1, 0, 0 }
+            //    };
+            //Console.WriteLine(new Solution().IslandPerimeter(grid));
+            Console.WriteLine(new Solution().Intersection(new int[] { 1, 2, 2, 1 }, new int[] { 2, 2 }));
         }
     }
 }
