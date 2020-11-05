@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using static algorithmStudy.Services.LeetCode._349;
+using static algorithmStudy.Services.LeetCode._127;
 //using static algorithmStudy.Services.LeetCode.CodingInterviews._58;
 
 namespace algorithmStudy
@@ -88,7 +88,7 @@ namespace algorithmStudy
             //        new int[] { 1, 1, 0, 0 }
             //    };
             //Console.WriteLine(new Solution().IslandPerimeter(grid));
-            Console.WriteLine(new Solution().Intersection(new int[] { 1, 2, 2, 1 }, new int[] { 2, 2 }));
+            Console.WriteLine(new Solution().LadderLength("a", "c",new string[] { "a", "b", "c" }.ToList()));
         }
     }
 }
