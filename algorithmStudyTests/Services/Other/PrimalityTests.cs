@@ -15,6 +15,7 @@ namespace algorithmStudy.Services.Other.Tests
             Primality p = new Primality();
             Assert.AreEqual(p.GeneralTest(3599), false);
             Assert.AreEqual(p.GeneralTest(113), true);
+            Assert.AreEqual(p.GeneralTest(4), false);
         }
 
         [TestMethod()]
@@ -22,7 +23,6 @@ namespace algorithmStudy.Services.Other.Tests
         {
             Primality p = new Primality();
             Assert.AreEqual(p.FermatTest(3599), false);
-            Assert.AreEqual(p.GeneralTest(113), true);
         }
     }
 }

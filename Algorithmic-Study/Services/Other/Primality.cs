@@ -18,7 +18,7 @@ namespace algorithmStudy.Services.Other
         public bool GeneralTest(int number)
         {
             bool IsPrime = true;
-            for (int i = 2; i < Math.Sqrt(number); i++)
+            for (int i = 2; i <= Math.Sqrt(number); i++)
             {
                 if (number % i == 0)
                 {
@@ -34,7 +34,7 @@ namespace algorithmStudy.Services.Other
         /// <param name="number"></param>
         /// <param name="testNum">测试次数</param>
         /// <returns></returns>
-        public bool FermatTest(int number,int testNum=5)
+        public bool FermatTest(int number,int testNum=10)
         {
             if (testNum <= 0)
             {
