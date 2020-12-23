@@ -37,7 +37,7 @@ namespace algorithmStudy.Services.LeetCode
         {
             public int MinCostClimbingStairs(int[] cost)
             {
-                int[] dp = new int[cost.Length];
+                int[] dp = new int[cost.Length+1];
                 dp[0] = dp[1] = 0;
                 for (int i = 2; i <= cost.Length; i++)
                 {
